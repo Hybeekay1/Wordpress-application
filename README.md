@@ -14,7 +14,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: wordpress-db-credentials
-type: (link unavailable)
+type: 
 stringData:
   username: <your-username>
   password: <your-password>
