@@ -102,4 +102,4 @@ kubectl get pods
 ```
 1. Access your WordPress site using the service name or IP address.
 
-Congratulations! You have successfully deployed WordPress using encrypted secrets stored in Git and managed by Kubernetes.
+You have successfully deployed WordPress using encrypted secrets stored in Git and managed by Kubernetes.
