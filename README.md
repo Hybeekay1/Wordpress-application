@@ -1,8 +1,10 @@
+# task: Create a wordpress deployment, which uses kubernetes secrets for it's database credentials environment variables. The kubernetes secrets should be stored in Git and must be encrypted using Bitnami Sealed Secrets
+
 *Prerequisites*
 
 - Kubernetes cluster (e.g., Minikube, GKE, AKS)
 - Git repository
-- Bitnami Sealed Secrets installed on your machine
+- Bitnami Sealed Secrets CLI and the controller
 - WordPress Docker image
 - Kubernetes CLI (kubectl)
 
@@ -21,9 +23,18 @@ stringData:
 ```
 Replace `<your-username>` and `<your-password>` with your actual database credentials.
 
+check if the sealed-secret cli is installed
+```
+kubeseal --fetch-cert --controller-name my-sealed-secrets --controller-namespace kube-system
+
+```
+
 1. Encrypt the secrets using Bitnami Sealed Secrets:
 ```
-kubeseal --format yaml < secrets.yaml > sealed-secrets.yaml
+kubeseal --fetch-cert --controller-name my-sealed-secrets --controller-namespace kube-system
+
+kubeseal --controller-name my-sealed-secrets --controller-namespace kube-system --format yaml < secret.yaml > sealed-secret.yaml
+
 ```
 This will generate an encrypted `sealed-secrets.yaml` file.
 
