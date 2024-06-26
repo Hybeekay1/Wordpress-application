@@ -1,0 +1,52 @@
+# apiVersion: networking.k8s.io/v1
+# kind: NetworkPolicy
+# metadata:
+#   name: network-policy-deny-ingress
+#   namespace: deployment-b
+# spec:
+#   podSelector:
+#     matchLabels:
+#       app: pod2
+#   policyTypes:
+#     - Ingress
+
+
+
+
+
+
+# # apiVersion: networking.k8s.io/v1
+# # kind: NetworkPolicy
+# # metadata:
+# #   name: deny-nginx-to-wordpress
+# #   namespace: deployment-b
+# # spec:
+# #   podSelector:
+# #     matchLabels:
+# #       app: nginx
+# #   policyTypes:
+# #   - Egress
+# #   egress:
+# #   - to:
+# #     - namespaceSelector:
+# #         matchLabels:
+# #           kubernetes.io/metadata.name: default
+# #       podSelector:
+# #         matchLabels:
+# #           app: wordpress
+
+
+
+
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: network-policy
+  namespace: deployment-b
+spec:
+  podSelector:
+    matchLabels:
+      app: pod1
+  policyTypes:
+    - Ingress
