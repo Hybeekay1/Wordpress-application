@@ -38,6 +38,13 @@ kubeseal --controller-name my-sealed-secrets --controller-namespace kube-system 
 ```
 This will generate an encrypted `sealed-secrets.yaml` file.
 
+
+apply the `sealed-secret.yaml`
+
+```
+kubectl apply -f sealed-secret.yaml
+```
+
 *Storing Secrets in Git*
 
 1. Add the encrypted `sealed-secrets.yaml` file to your Git repository:
